@@ -1,0 +1,8 @@
+## Interface: 60200
+## Title: TestGit!
+## Notes: Testing a Git checkout for packaging.
+## Author: Neb
+## Version: @project-version@
+
+embeds.xml
+TestGit.lua
