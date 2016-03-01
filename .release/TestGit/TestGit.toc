@@ -2,7 +2,7 @@
 ## Title: TestGit!
 ## Notes: Testing a Git checkout for packaging.
 ## Author: Neb
-## Version: a8432d1
+## Version: v1.0
 
 embeds.xml
 TestGit.lua
