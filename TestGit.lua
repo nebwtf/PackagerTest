@@ -10,7 +10,6 @@ file-date-iso: @file-date-iso@
 file-date-integer: @file-date-integer@
 file-timestamp: @file-timestamp@
 
-
 project-revision: @project-revision@
 project-hash: @project-hash@
 project-abbreviated-hash: @project-abbreviated-hash@
