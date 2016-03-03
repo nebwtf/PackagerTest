@@ -13,7 +13,6 @@ addons:
     packages:
     - lua5.1
     - luarocks
-    - jq
 
 branches:
   only: master
