@@ -21,6 +21,8 @@ project-version: @project-version@
 
 --]]
 
+--@localization(locale="enUS", format="lua_additive_table")@
+
 --@debug@
 local debug = true
 --@end-debug@
