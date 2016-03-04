@@ -40,5 +40,6 @@ deploy:
 
 notifications:
   email: bullerk@gmail.com
+  irc: ircs://chat.freenode.net:7070/##nebula
   on_success: always
   on_failure: always
