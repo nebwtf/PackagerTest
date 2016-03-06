@@ -25,7 +25,6 @@ project-version: @project-version@
 
 --@localization(locale="deDE", format="lua_additive_table", handle-unlocalized="ignore")@
 
-error)
 
 --@debug@
 local debug = true
