@@ -37,9 +37,3 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-
-notifications:
-  email: bullerk@gmail.com
-  irc: ircs://chat.freenode.net:7070/##nebula
-  on_success: change
-  on_failure: always
