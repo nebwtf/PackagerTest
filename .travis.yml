@@ -23,7 +23,7 @@ before_install:
   - luarocks install --local luacheck
   - PATH=$PATH:/home/travis/.luarocks/bin
 
-before_script: luacheck . -qo "011"
+before_script: luacheck . --no-color -qo "011" | tee ../luacheck.out
 script: curl -s https://raw.githubusercontent.com/nebularg/curseforge-packager/bigwigs/release.sh | bash -s -- -p nebcftest
 
 before_deploy:
