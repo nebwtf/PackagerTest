@@ -24,11 +24,10 @@ before_install:
   - PATH=$PATH:/home/travis/.luarocks/bin
 
 before_script: ( set -o pipefail; luacheck . --no-color -qo "011" | tee ../luacheck.out )
-script: curl -s https://raw.githubusercontent.com/nebularg/curseforge-packager/bigwigs/release.sh | bash -s -- -p nebcftest
+script: curl -s https://raw.githubusercontent.com/nebularg/curseforge-packager/master/release.sh | bash -s -- -p nebcftest -d
 
 before_deploy:
-  - export PACKAGER_ARCHIVE=$(ls .release/*.zip)
-  - echo "Uploading $(basename "$PACKAGER_ARCHIVE") to GitHub release $TRAVIS_TAG"
+  - echo "Uploading ${PACKAGER_ARCHIVE} to GitHub release $TRAVIS_TAG"
 deploy:
   provider: releases
   api_key:
