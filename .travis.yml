@@ -14,27 +14,19 @@ env:
   - secure: DQiFVgRzLXFa2JdyR2tLQNbREO1L0OAeP6MZeNf+pkXz8pL5ivI2Ad78xjp4uXuhfPLoAzbuIPGmoEnZysB3ivC2VIDizpOom01aah3nsuMlEBt8n5U3M5MsQav8Yxpdppi9PiIeNGblgzAXZehGdDIjrrvMdmXf0o+ZkMICVH4x+y/vYhDpTIku+kbF88ABJUkZqiD9FQJnXYMfWCcWFPiZzyhOzT6Q+67U2bl7Tr08bal2cNiP0AJhcgYhchEnlKZ7s4zgbCQ+amIHkkzkmYBDtfUk731qMnvB6KxctKNjRunqhmVDWC+ikrWeOAoIm+cxGFhWKYzHGGB6GRLwE3nWt94ksfIbdFoKzBnidFpdbZLE5nlye2JqFSBvoteGM6XiX0cfdZuMscnyAbSTdo10KgqtXCIrPnGnEk96Ej/rTAX5fqzdWR9uG514tSvs5n9FwAQ8GT6PPEU6w2DUf+EPfDLfepV2yzaKHwtbTvSWQs3BcOqFN8SJFlK0zcPC2Tcw0kGu3DGrDAO93z2zEA/5RrZx9vwKXVRTB2p0BPZXhH56pIrArPP17yicHB9wLCbvbCGgjBdR9URUoAT4kRYas+/uj8h6ORd+B9uENC5qX6UqKCVAQ1kTzZN3My0tUandKYNUWzu5aE3fEbBCF4FgTbh5IArYOebWpzQg7RA=
   - secure: E8vUZHkrJwqkGcjlmUWjaIK0P9dJ0D+eaQK9YEQRuc3b/qMuSud6QPO2iW6KwcLa4x1v0pmhO25kO9ZoULpYTs3i4Clp7tGIuz/6ljQMGmoSWi8Vs1I5la3f2BYrNedzLQg1aDWa3NmcgFJdhS/SMDDxcqW090j0rHB/k+yf3To7y9XulAyO6ozlY3pqhN/KExP/r6ju94jCO7iMo62uiDLOksgKveK/CtPJQleI7bbPNyyAJ0r6+XX2crnV1vla118xJdT8/nc609d08AC5Ob7uItWmdktgz2OQozNwX0woHS7anDtLryVQnagGP7qBPSwL7qPbmJCfNmwBYX7TxXko7x8jp1yoKz41cocrKK9uiy/bjKZBmybOGQVpN5KzCP4GYdP4L8LBFs9rNmtGpD4jkO3darxuqLfbsvAI0oWEJC//Kl3E+6HRj1Tel78Bzf7IFTZuqhFu9I/sxVW3JZqgpAk2MC6m4eiuL7waSKifTWis2wF6tOa67rGMEZW9UU1/YxCUCEmEQ9XQudX3xXcldNYo24X20i6R3tZRud8Hg9cYsuCXMCm27Jo3PVCPQTCyBU5W2Dt1Qv+vNUV2l/RH2FWjoYwKDYfdlbpC9+Eaj+OS2WT29swvuNjtPF3e2v1G7D6pqvYxWKDNm2Pjrfx3zoq3lHna0wIaz08bUMc=
 
-#branches:
-#  only:
-#    - master
-#    - /^v.*$/
-
 before_install: luarocks install --local luacheck
 
 before_script: /home/travis/.luarocks/bin/luacheck . --no-color -qo "011"
 script:
-  - echo "${TRAVIS_BRANCH} - ${TRAVIS_COMMIT} - ${TRAVIS_TAG} - ${TRAVIS_PULL_REQUEST}"
+  - echo "$TRAVIS_BRANCH - $TRAVIS_COMMIT - $TRAVIS_TAG - $TRAVIS_PULL_REQUEST"
   - curl -s https://raw.githubusercontent.com/nebularg/curseforge-packager/master/release.sh | bash -s -- -d
 
-before_deploy:
-  - echo "Uploading ${PACKAGER_ARCHIVE} to GitHub release ${TRAVIS_TAG}"
+before_deploy: echo "Uploading $PACKAGER_ARCHIVE to GitHub release $TRAVIS_TAG"
 deploy:
   provider: releases
   api_key:
     secure: pjvDEKCeWnAyElIf5PXv30JFbFEHnjKRUlFR3eMDEtbjQSD09X9949Jg+GyuzmQkQt0BULDVC5OS1qEoNmHcDviz0tlok/jqU/yDPOZ6Otm6028vFuJUAD83DvANIR1giKX+nXy+9VySQuJtkk8ozHGWgMsDm+k+SczXZ43Z5GRUKHTMhg9uxoeEkG+NjSTXlbiEMi0HVP216DV/vmhxsuRqRyh/43BB0Vp63shOJrqP2w55hBckJQ9jU0pPDNDVk0IBUNsdhlOkbn14exDtaf4sJnVYT00lt9N1RB8XqUD0Vnu0YwEolvzOth+hjBVNQKiQnvy//hHe7GHsf2DvBHj5HNboBVsx4VLRTARZXgo7IB605VVf7raPI1lnc2vRn93tU7c7oRLnpfBmlmgB1kvu0W6uGlxE0OE3uLGWuvqRzjerT1jfzFaULA6lxQdYyb8ESf9x/cPyOAe7UeTjI8fNpQf1scMj+G1Y41d5Zc6Z+k/GW+lQbv9wf2spagl0FN2nOeg4Al1N/zDorDtiw3w+HmiiWGibg2+f4/nHDODbfxbzOu9OOkyQ6FFVV3yL5BrUhRa8Xaa+KdOa+pDY05CIBuZ60aEYjlS6Zs/MGBX9XY/kBNllrY4Xg8/ErT4OipMIYQ12560nWSl7kHTlJTomveRWcOEbsknnKCQg65k=
-  file:
-    - "${PACKAGER_ARCHIVE}"
-    - "${PACKAGER_ARCHIVE_NOLIB}"
+  file: "$PACKAGER_ARCHIVE"
   skip_cleanup: true
   on:
     tags: true
