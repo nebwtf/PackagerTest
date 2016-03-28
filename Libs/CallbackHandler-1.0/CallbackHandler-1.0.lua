@@ -2,7 +2,7 @@
 local MAJOR, MINOR = "CallbackHandler-1.0", 6
 local CallbackHandler = LibStub:NewLibrary(MAJOR, MINOR)
 
-if not CallbackHandler then return end -- No upgrade needed
+if not CallbackHandler then return end -- No upgrade needed!
 
 local meta = {__index = function(tbl, key) tbl[key] = {} return tbl[key] end}
 
