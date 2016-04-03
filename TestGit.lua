@@ -35,5 +35,5 @@ local alpha = true
 --@end-alpha@
 
 --@do-not-package@
-local this_should_never_be_in_a_package
+local this_should_never_be_shown_in_a_package
 --@end-do-not-package@
