@@ -21,18 +21,6 @@ script:
   - echo "$TRAVIS_BRANCH - $TRAVIS_COMMIT - $TRAVIS_TAG - $TRAVIS_PULL_REQUEST - $TRAVIS_BUILD_DIR"
   - curl -s https://raw.githubusercontent.com/nebularg/curseforge-packager/master/release.sh | bash -s -- -d
 
-before_deploy:
-  - export PACKAGER_ARCHIVE=$(ls -1 .release/*.zip | grep -v nolib)
-  - echo "Uploading $PACKAGER_ARCHIVE to GitHub release $TRAVIS_TAG"
-deploy:
-  provider: releases
-  api_key:
-    secure: pjvDEKCeWnAyElIf5PXv30JFbFEHnjKRUlFR3eMDEtbjQSD09X9949Jg+GyuzmQkQt0BULDVC5OS1qEoNmHcDviz0tlok/jqU/yDPOZ6Otm6028vFuJUAD83DvANIR1giKX+nXy+9VySQuJtkk8ozHGWgMsDm+k+SczXZ43Z5GRUKHTMhg9uxoeEkG+NjSTXlbiEMi0HVP216DV/vmhxsuRqRyh/43BB0Vp63shOJrqP2w55hBckJQ9jU0pPDNDVk0IBUNsdhlOkbn14exDtaf4sJnVYT00lt9N1RB8XqUD0Vnu0YwEolvzOth+hjBVNQKiQnvy//hHe7GHsf2DvBHj5HNboBVsx4VLRTARZXgo7IB605VVf7raPI1lnc2vRn93tU7c7oRLnpfBmlmgB1kvu0W6uGlxE0OE3uLGWuvqRzjerT1jfzFaULA6lxQdYyb8ESf9x/cPyOAe7UeTjI8fNpQf1scMj+G1Y41d5Zc6Z+k/GW+lQbv9wf2spagl0FN2nOeg4Al1N/zDorDtiw3w+HmiiWGibg2+f4/nHDODbfxbzOu9OOkyQ6FFVV3yL5BrUhRa8Xaa+KdOa+pDY05CIBuZ60aEYjlS6Zs/MGBX9XY/kBNllrY4Xg8/ErT4OipMIYQ12560nWSl7kHTlJTomveRWcOEbsknnKCQg65k=
-  file: "$PACKAGER_ARCHIVE"
-  skip_cleanup: true
-  on:
-    tags: true
-
 notifications:
   email:
     on_success: never
