@@ -2,5 +2,5 @@
 
 # PackagerTest
 
-Tests for [curseforge-packager](https://github.com/nebularg/curseforge-packager)
+Tests for [packager](https://github.com/BigWigsMods/packager)
 
