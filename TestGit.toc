@@ -5,5 +5,4 @@
 ## Version: @project-version@
 
 embeds.xml
-
 TestGit.lua
