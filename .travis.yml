@@ -1,6 +1,4 @@
-sudo: false
-
-language: c
+language: minimal
 
 addons:
   apt:
@@ -13,7 +11,7 @@ env:
 
 before_install: luarocks install --local luacheck
 
-before_script: /home/travis/.luarocks/bin/luacheck . -qo "011"
+before_script: $HOME/.luarocks/bin/luacheck . -qo 011
 
 script:
   - echo "$TRAVIS_BRANCH - $TRAVIS_COMMIT - $TRAVIS_TAG - $TRAVIS_PULL_REQUEST - $TRAVIS_BUILD_DIR"
