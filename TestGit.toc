@@ -1,8 +1,9 @@
-## Interface: 60200
+## Interface: 70300
 ## Title: TestGit!
 ## Notes: Testing a Git checkout for packaging.
 ## Author: Neb
 ## Version: @project-version@
+## X-Date: @project-date-iso@
 
 embeds.xml
 TestGit.lua
